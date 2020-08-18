@@ -1,0 +1,130 @@
+Original dataset: 
+    ID       RPM  Vibration  Status
+0   1 -1.000000   1.000000       1
+1   2 -0.924603   0.958592       1
+2   3 -0.829365   0.875776       1
+3   4 -0.773810   0.929607       1
+4   5 -0.706349   0.722567       1 
+
+
+Initial Weights: [-2.9465, -1.0147, 2.161] 
+
+Errors [The first five] : 
+    Target Prediction     Error ErrorSquared
+0       1    0.55705   0.44295     0.196204
+1       1   0.515798  0.484202     0.234452
+2       1   0.447101  0.552899     0.305697
+3       1   0.461965  0.538035     0.289482
+4       1   0.338878  0.661122     0.437083 
+
+ErrorDelta [The first five] : 
+    Target      W[0]      W[1]      W[2]
+0       1  0.109296 -0.109296  0.109296
+1       1   0.12093 -0.111812  0.115922
+2       1  0.136678 -0.113356  0.119699
+3       1   0.13373 -0.103482  0.124317
+4       1  0.148118 -0.104623  0.107025 
+
+New weights after iteration  1 :  [-2.9207148795607702, -1.036254835288146, 2.18389415705388] 
+
+Errors [The first five] : 
+    Target Prediction     Error ErrorSquared
+0       1   0.565755  0.434245     0.188569
+1       1   0.524298  0.475702     0.226292
+2       1   0.455041  0.544959      0.29698
+3       1   0.469949  0.530051     0.280954
+4       1   0.345398  0.654602     0.428504 
+
+ErrorDelta [The first five] : 
+    Target      W[0]      W[1]      W[2]
+0       1  0.106684 -0.106684  0.106684
+1       1  0.118645 -0.109699  0.113732
+2       1  0.135138 -0.112079  0.118351
+3       1  0.132034 -0.102169   0.12274
+4       1  0.148004 -0.104543  0.106943 
+
+New weights after iteration  2 :  [-2.9080741569060105, -1.0468069492577758, 2.1951032019361816] 
+
+Errors [The first five] : 
+    Target Prediction     Error ErrorSquared
+0       1   0.574304  0.425696     0.181217
+1       1   0.532672  0.467328     0.218396
+2       1   0.462899  0.537101     0.288478
+3       1   0.477842  0.522158     0.272649
+4       1   0.351889  0.648111     0.420048 
+
+ErrorDelta [The first five] : 
+    Target      W[0]      W[1]      W[2]
+0       1  0.104074 -0.104074  0.104074
+1       1  0.116333 -0.107562  0.111516
+2       1  0.133536  -0.11075  0.116948
+3       1  0.130283 -0.100814  0.121112
+4       1   0.14781 -0.104406  0.106803 
+
+C:/Users/Erics Asus/.spyder-py3/Program4/Program 4Paul/Program 4.py:50: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errorframe["Prediction"][i] = 1-(1)/(1+np.exp(weights[0]+weights[1]*(dataframe["RPM"][i])+weights[2]*(dataframe["Vibration"][i])))
+C:/Users/Erics Asus/.spyder-py3/Program4/Program 4Paul/Program 4.py:51: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errorframe["Error"][i] = (1-errorframe["Prediction"][i])
+C:/Users/Erics Asus/.spyder-py3/Program4/Program 4Paul/Program 4.py:52: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errorframe["ErrorSquared"][i] = (errorframe["Error"][i])*(errorframe["Error"][i])
+C:/Users/Erics Asus/.spyder-py3/Program4/Program 4Paul/Program 4.py:54: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errorDelta["W[0]"][i] = errorframe["Error"][i]*errorframe["Prediction"][i]*(1-errorframe["Prediction"][i])*errorframe["Target"][i]
+C:/Users/Erics Asus/.spyder-py3/Program4/Program 4Paul/Program 4.py:55: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errorDelta["W[1]"][i] = errorframe["Error"][i]*errorframe["Prediction"][i]*(1-errorframe["Prediction"][i])*dataframe["RPM"][i]
+C:/Users/Erics Asus/.spyder-py3/Program4/Program 4Paul/Program 4.py:56: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errorDelta["W[2]"][i] = errorframe["Error"][i]*errorframe["Prediction"][i]*(1-errorframe["Prediction"][i])*dataframe["Vibration"][i]
+New weights after iteration  3 :  [-2.8956066107488927, -1.0572047929243389, 2.2061491608436286] 
+
+Errors [The first five] : 
+    Target Prediction     Error ErrorSquared
+0       1   0.582692  0.417308     0.174146
+1       1   0.540912  0.459088     0.210762
+2       1   0.470666  0.529334     0.280194
+3       1   0.485638  0.514362     0.264568
+4       1   0.358345  0.641655     0.411721 
+
+ErrorDelta [The first five] : 
+    Target      W[0]       W[1]      W[2]
+0       1  0.101473  -0.101473  0.101473
+1       1  0.114004  -0.105408  0.109283
+2       1  0.131878  -0.109375  0.115496
+3       1  0.128484 -0.0994224   0.11944
+4       1  0.147538  -0.104213  0.106606 
+
+New weights after iteration  4 :  [-2.883315399882842, -1.067446013510335, 2.2170294772012724] 
+
+Errors [The first five] : 
+    Target Prediction     Error ErrorSquared
+0       1   0.590915  0.409085     0.167351
+1       1   0.549013  0.450987     0.203389
+2       1   0.478337  0.521663     0.272132
+3       1    0.49333   0.50667     0.256714
+4       1   0.364761  0.635239     0.403529 
+
+ErrorDelta [The first five] : 
+    Target       W[0]       W[1]       W[2]
+0       1  0.0988901 -0.0988901  0.0988901
+1       1   0.111663  -0.103244   0.107039
+2       1   0.130171  -0.107959   0.114001
+3       1   0.126645  -0.097999    0.11773
+4       1   0.147192  -0.103969   0.106356 
+
+Final weights after iteration  2000 :  [-1.416654651959181, -2.221844580033979, 3.439672803233475] 
